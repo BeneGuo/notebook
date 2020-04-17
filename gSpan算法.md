@@ -46,3 +46,8 @@ t开头表示一个新的图; v开头表示一个顶点，第二列是顶点的�
 
 
 从这两个图(例子中总共有5个图)中挖掘频繁子图，设置为最小支持度(-s)为2，最小顶点数(-l)为5，可以挖掘出4个子图。
+
+depth-First Search Tree（https://www.cnblogs.com/zhang293/p/9427988.html 中DFS编码的那个截图）
+从一个顶点出发，进行深度搜索，每个节点都搜索forward edge 和 backward edge，其中forward edge都被包含在 DFS tree edge中，也就是图中的实线部分。
+backward edge是每个节点连接已经在当前子图中的节点了，这种edge不被包含在DFS tree中，也就是图中的虚线部分。同时，<i, j, li, l(i,j), lj>,如果i<j则是forward edge，反之是backward edge（因此每个子图实际上是要重新进行顶点的编号的）。
+
