@@ -50,4 +50,6 @@ t开头表示一个新的图; v开头表示一个顶点，第二列是顶点的�
 depth-First Search Tree（https://www.cnblogs.com/zhang293/p/9427988.html 中DFS编码的那个截图）
 从一个顶点出发，进行深度搜索，每个节点都搜索forward edge 和 backward edge，其中forward edge都被包含在 DFS tree edge中，也就是图中的实线部分。
 backward edge是每个节点连接已经在当前子图中的节点了，这种edge不被包含在DFS tree中，也就是图中的虚线部分。同时，<i, j, li, l(i,j), lj>,如果i<j则是forward edge，反之是backward edge（因此每个子图实际上是要重新进行顶点的编号的）。
+每个子图由v0-vn-1构成，其中v0称之为root，vn-1称之为rightmost vertex. v0-vn-1的实线的路径为该子图的right most path。
+
 
