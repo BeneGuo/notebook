@@ -2,10 +2,10 @@
 0.环境准备，创建sagemaker， 创建notebook，创建S3桶
 1. 上传模型文件和数据文件（看需要）
 2. 将PB转成saved model的格式，可以用notebook写代码转，转完后需要将文件夹打包成tar.gz的格式
-# 从S3下载到本地notebook本地，从nodebook本地上传
-# mm = sagemaker_session.download_data(path='model/',bucket=bucket, key_prefix='model/res50.tar.gz')
-# inputs = sagemaker_session.upload_data(path='model/mm.tar.gz', bucket=bucket, key_prefix='model')
-# 本地路径 默认 /home/ec2-user/SageMaker/
+ 从S3下载到本地notebook本地，从nodebook本地上传
+ mm = sagemaker_session.download_data(path='model/',bucket=bucket, key_prefix='model/res50.tar.gz')
+ inputs = sagemaker_session.upload_data(path='model/mm.tar.gz', bucket=bucket, key_prefix='model')
+ 本地路径 默认 /home/ec2-user/SageMaker/
 
 model要求是tar.gz的格式
 entry_point是源码的py文件，pb先试试指定为None，有的框架必须要模型代码才能还原成模型。
@@ -44,6 +44,8 @@ The request body for predict API must be JSON object formatted as follows:
 待解决问题：
 1. 已存在的endpoint，怎么推理
 2. transform批量推理
+支持的输入数据分割 None | Line(csv) | RecordIO(MXNet) | TFRecord(TF)
+输入数据支持目录(S3Prefix)或者具体的文件(ManifestFile)
 3. 单条推理的时候，bs超过8就报错
 https://github.com/aws/sagemaker-python-sdk/issues/831
 Unfortunately, SageMaker's InvokeEndpoint API does have a 5MB limit on the size of incoming requests.
