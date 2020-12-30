@@ -46,6 +46,9 @@ The request body for predict API must be JSON object formatted as follows:
 2. transform批量推理
 支持的输入数据分割 None | Line(csv) | RecordIO(MXNet) | TFRecord(TF)
 输入数据支持目录(S3Prefix)或者具体的文件(ManifestFile)
+参考：
+https://aws.amazon.com/blogs/machine-learning/performing-batch-inference-with-tensorflow-serving-in-amazon-sagemaker/
+
 3. 单条推理的时候，bs超过8就报错
 https://github.com/aws/sagemaker-python-sdk/issues/831
 Unfortunately, SageMaker's InvokeEndpoint API does have a 5MB limit on the size of incoming requests.
